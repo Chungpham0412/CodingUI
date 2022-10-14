@@ -1,3 +1,4 @@
+import Header from '@components/Share/Header';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
@@ -6,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-   <h1>My App</h1>
+   <Header />
   </React.StrictMode>
 );
 
