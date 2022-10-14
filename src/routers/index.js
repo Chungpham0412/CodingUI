@@ -4,9 +4,15 @@ import Home from '@pages/Home';
 // Public routes
 const publicRoutes = [
     // { path: config.routes.home, component: Home, layout: AccountLayout },
-    { path: config.routes.home, component: Home },
+    {
+        path: config.routes.home,
+        component: Home
+    },
 ];
 
 const privateRoutes = [];
 
-export { publicRoutes, privateRoutes };
+export {
+    publicRoutes,
+    privateRoutes
+};
