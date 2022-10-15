@@ -1,3 +1,110 @@
-body{
-    color: #000;
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+    background-color: rgb(15 23 42/var(--tw-bg-opacity));
+    color: rgb(255 255 255/var(--tw-text-opacity));
+}
+
+.header {
+    &--wrapper {
+        --tw-border-opacity: 1;
+        padding: 1.25rem;
+        border-bottom: 1px solid rgb(30 41 59/var(--tw-border-opacity));
+    }
+
+    .logo {
+        color: rgb(255 255 255/var(--tw-text-opacity));
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 20px;
+            height: auto;
+        }
+
+        span {
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+    }
+}
+
+@media (max-width:375px) {
+    .header {
+        &--wrapper {
+            padding: 0.5rem;
+        }
+    }
+}
+
+.bg-gradient-secondary {
+    background-image: linear-gradient(to right top, #fc6c8f, #ffb86c);
+}
+
+.bg-gradient-primary {
+    background-image: linear-gradient(to right top, #6a5af9, #d66efd);
+}
+
+.pointer-effect {
+    -webkit-animation: pointer 1s cubic-bezier(.075, .82, .165, 1) infinite;
+    animation: pointer 1s cubic-bezier(.075, .82, .165, 1) infinite;
+}
+
+@-webkit-keyframes pointer {
+    to {
+        -webkit-transform: scale(.75);
+        transform: scale(.75)
+    }
+}
+
+@keyframes pointer {
+    to {
+        -webkit-transform: scale(.75);
+        transform: scale(.75)
+    }
+}
+
+.btn {
+    --tw-text-opacity: 1;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-radius: 0.5rem;
+    color: rgb(255 255 255/var(--tw-text-opacity));
+    position: relative;
+    font-weight: 500;
+}
+
+.btn+.btn {
+    margin-left: 1rem;
+}
+
+.btn-effect {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: auto;
+        top: 0;
+        height: 100%;
+        width: 0;
+        background-color: #fff;
+        opacity: .1;
+        z-index: -1;
+        transition: all .4s cubic-bezier(.165, .84, .44, 1);
+    }
+
+    &:hover::before {
+        left: auto;
+        right: 0;
+        width: 100%;
+    }
 }

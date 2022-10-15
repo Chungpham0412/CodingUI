@@ -1,0 +1,17 @@
+.page-error{
+    .btn{
+        --tw-bg-opacity: 1;
+        position: absolute;
+        top: 1.25rem;
+        left: 1.25rem;
+        -webkit-column-gap: 0.5rem;
+        column-gap: 0.5rem;
+        font-size: .875rem;
+        line-height: 1.25rem;
+        background-color: rgb(71 85 105/var(--tw-bg-opacity));
+        svg{
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+    }
+}

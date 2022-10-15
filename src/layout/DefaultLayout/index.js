@@ -1,18 +1,16 @@
+import React from 'react';
 import Header from '@components/Share/Header';
 import Footer from '@components/Share/Footer';
+import Banner from '@components/Share/Banner';
+
 function DefaultLayout({ children }) {
     return (
         <>
             <Header />
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-md-3">
-                    </div>
-                    <div className="col-md-9">
-                        <div className="content">{children}</div>
-                    </div>
-                </div>
-            </div>
+            <main className="container">
+                <Banner />
+                <div id="content">{children}</div>
+            </main>
             <Footer />
         </>
     );
