@@ -1,26 +1,5 @@
 {
-    "datas": [
-        {
-            "id": 1,
-            "name": "Loader Inner",
-            "code": {
-                "html": "json",
-                "css": ""
-            },
-            "category": "animation",
-            "author": "Chung",
-            "status": 1
-        },
-        {
-            "id": 2,
-            "name": "Toggle",
-            "code": {
-                "html": "json",
-                "css": ""
-            },
-            "category": "form",
-            "author": "Evondev",
-            "status": 1
-        }
+    "cards": [
+     
     ]
 }

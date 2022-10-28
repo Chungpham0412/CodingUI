@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import ReactModal from 'react-modal';
 import ModalClose from './ModalClose';
+import './ModalViewCode.scss';
 function ModalViewCode() {
-    const [isShowCode, setIsShowCode] = useState(true);
+    const [isShowCode, setIsShowCode] = useState(false);
     return (
         <ReactModal
             isOpen={isShowCode}

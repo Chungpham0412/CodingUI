@@ -9,7 +9,9 @@ const CardStyles = styled.div`
 `;
 function CardItem(props) {
     const { id, title, htmlCode, cssCode, filter, author = null, preview = false } = props;
+
     const handleClick = () => {
+        // setIsShowCode(true);
         console.log('handleClick');
     };
     return (
