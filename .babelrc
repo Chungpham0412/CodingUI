@@ -1,12 +1,16 @@
 {
     "plugins": [
-      ["module-resolver", {
-        "alias": {
-          "@components": "./src/components",
-          "@config": "./src/config",
-          "@pages": "./src/pages",
-          "@assets": "./src/assets"
-        }
-      }]
+        [
+            "module-resolver",
+            {
+                "alias": {
+                    "@components": "./src/components",
+                    "@config": "./src/config",
+                    "@pages": "./src/pages",
+                    "@assets": "./src/assets",
+                    "@utils": "./src/utils"
+                }
+            }
+        ]
     ]
-  }
+}

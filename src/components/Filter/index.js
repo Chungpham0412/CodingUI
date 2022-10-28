@@ -1,50 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import * as FilterService from 'src/services/FilterService';
 import './Filter.scss';
+
 function Filter() {
     const [isActive, setIsActive] = useState(0);
-    const items = [
-        {
-            name: 'All',
-            description: '',
-            image: 'none',
-        },
-        {
-            name: 'Form',
-            description: '',
-            image: 'none',
-        },
-        {
-            name: 'Button',
-            description: '',
-            image: 'none',
-        },
-        {
-            name: 'dropdown',
-            description: '',
-            image: 'none',
-        },
-        {
-            name: 'other',
-            description: '',
-            image: 'none',
-        },
-        {
-            name: 'loading',
-            description: '',
-            image: 'none',
-        },
-        {
-            name: 'tab',
-            description: '',
-            image: 'none',
-        },
-    ];
+    const [filterResult, setFilterResult] = useState([]);
+    useEffect(() => {
+        const fetchApi = async () => {
+            const result = await FilterService.getFilters();
+            setFilterResult(result);
+        };
+        fetchApi();
+    }, []);
     const handleClick = (index) => {
         setIsActive(index);
     };
     return (
         <div className="filter d-flex align-items-center">
-            {items.map((item, index) => {
+            {filterResult.map((item, index) => {
                 return (
                     <div
                         className={isActive === index ? 'filter--item active' : 'filter--item'}

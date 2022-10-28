@@ -1,7 +1,8 @@
 import './Card.scss';
 import React from 'react';
 import CardItem from './CardItem';
-
+console.log(process.env);
+console.log(process.env.BASE_URL);
 const cards = [
     {
         id: 1,
