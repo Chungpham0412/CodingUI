@@ -10,7 +10,9 @@ function Filter() {
             const result = await FilterService.getFilters();
             setFilterResult(result);
         };
-        fetchApi();
+        return () => {
+            fetchApi();
+        };
     }, []);
     const handleClick = (index) => {
         setIsActive(index);
