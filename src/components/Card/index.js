@@ -5,7 +5,8 @@ import CardItem from './CardItem';
 import { useStore } from 'src/store';
 function Card() {
     const [cardResult, setCardResult] = useState([]);
-    const [state] = useStore();
+    const [state, dispatch] = useStore();
+
     useEffect(() => {
         const fetchApi = async () => {
             let result = [];
@@ -16,9 +17,8 @@ function Card() {
             }
             setCardResult(result);
         };
-        return () => {
-            fetchApi();
-        };
+
+        fetchApi();
     }, [state]);
     return (
         <div className="card-list">

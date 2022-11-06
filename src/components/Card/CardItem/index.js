@@ -3,16 +3,42 @@ import copyToClipBoard from 'src/utils/copyToClipBoard';
 import styled from 'styled-components';
 import parse from 'html-react-parser';
 import 'react-toastify/dist/ReactToastify.css';
+import shallow from 'zustand/shallow';
+import { globalStore } from 'src/store/global-store';
+import pretty from 'pretty';
+import cssbeautify from 'cssbeautify';
+import { useEffect, useState } from 'react';
 
 const CardStyles = styled.div`
     ${(props) => props.css}
 `;
 function CardItem(props) {
     const { id, title, htmlCode, cssCode, filter, author = null, preview = false } = props;
+    const [htmlSourceCode, setHtmlSourceCode] = useState(htmlCode);
+    const [cssSourceCode, setCssSourceCode] = useState(cssCode);
 
-    const handleClick = () => {
-        // setIsShowCode(true);
-        console.log('handleClick');
+    useEffect(() => {
+        setHtmlSourceCode(htmlCode);
+        setCssSourceCode(cssCode);
+    }, [htmlCode, cssCode, preview]);
+    const { setIsShowCode, setHtmlCodeView, setCssCodeView } = globalStore(
+        (state) => ({
+            setIsShowCode: state.setIsShowCode,
+            setHtmlCodeView: state.setHtmlCodeView,
+            setCssCodeView: state.setCssCodeView,
+        }),
+        shallow,
+    );
+
+    const handleViewCode = () => {
+        setIsShowCode(true);
+        setHtmlCodeView(pretty(htmlSourceCode, { ocd: true }));
+        setCssCodeView(
+            cssbeautify(cssSourceCode, {
+                indent: `  `,
+                autosemicolon: true,
+            }),
+        );
     };
     return (
         <div className="card">
@@ -21,7 +47,7 @@ function CardItem(props) {
                     <span className="sub-name">Credit: </span>
                     <span className="name">{author}</span>
                 </div>
-                <div className="card__top--view" onClick={handleClick}>
+                <div className="card__top--view" onClick={handleViewCode}>
                     <button className="btn">
                         <IconEye />
                     </button>

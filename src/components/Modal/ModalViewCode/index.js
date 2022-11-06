@@ -1,18 +1,43 @@
-import { useState } from 'react';
 import ReactModal from 'react-modal';
 import ModalClose from './ModalClose';
 import './ModalViewCode.scss';
+import { globalStore } from 'src/store/global-store';
+import shallow from 'zustand/shallow';
+import CodeEditorBlock from '@components/CodeEditorBlock';
+
 function ModalViewCode() {
-    const [isShowCode, setIsShowCode] = useState(false);
+    const { isShowCode, setIsShowCode, htmlCodeView, cssCodeView } = globalStore(
+        (state) => ({
+            isShowCode: state.isShowCode,
+            setIsShowCode: state.setIsShowCode,
+            htmlCodeView: state.htmlCodeView,
+            cssCodeView: state.cssCodeView,
+        }),
+        shallow,
+    );
+    console.log('isShowCode', isShowCode);
     return (
         <ReactModal
             isOpen={isShowCode}
-            overlayClassName="bg-black bg-opacity-40 fixed inset-0 z-[99] flex items-center justify-center cursor-pointer"
-            className="max-w-2xl p-5 rounded-lg bg-slate-800 max-h-[80vh] overflow-y-auto w-full relative scrollbar-style"
+            overlayClassName="modal-content"
+            className="ModalViewCode scrollbar-style"
             onRequestClose={() => setIsShowCode(false)}
         >
             <ModalClose onClick={() => setIsShowCode(false)}></ModalClose>
-            <h2>ádsads</h2>
+
+            <div className="mt-10"></div>
+            <div className="flex flex-col mb-5 gap-y-3">
+                <label>HTML</label>
+                <CodeEditorBlock code={htmlCodeView} name="htmlCodeView" language="html">
+                    {htmlCodeView}
+                </CodeEditorBlock>
+            </div>
+            <div className="flex flex-col mb-5 gap-y-3">
+                <label>CSS</label>
+                <CodeEditorBlock code={cssCodeView} name="cssCodeView" language="css">
+                    {cssCodeView}
+                </CodeEditorBlock>
+            </div>
         </ReactModal>
     );
 }

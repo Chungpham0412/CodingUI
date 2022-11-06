@@ -21,8 +21,6 @@ function Filter() {
     const handleClick = (id) => {
         setIsActive(id);
         dispatch(actions.setFilter(id));
-        console.log('SetFilter => State(Filter-id)', state);
-        console.log('Click => Filter-id', id);
     };
 
     return (
