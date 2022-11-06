@@ -1,8 +1,8 @@
 import * as httpRequest from '@utils/httpRequest';
 
-export const getCardByFilterId = async () => {
+export const getCardByFilterId = async (id = 0) => {
     try {
-        const res = await httpRequest.get('api/card/getCardByFilterId/3');
+        const res = await httpRequest.get(`api/card/getCardByFilterId/${id}`);
         return res;
     } catch (error) {
         console.log(error);

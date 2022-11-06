@@ -2,18 +2,24 @@ import './Card.scss';
 import React, { useEffect, useState } from 'react';
 import * as CardService from 'src/services/CardService';
 import CardItem from './CardItem';
-
+import { useStore } from 'src/store';
 function Card() {
     const [cardResult, setCardResult] = useState([]);
+    const [state] = useStore();
     useEffect(() => {
         const fetchApi = async () => {
-            const result = await CardService.getCards();
+            let result = [];
+            if (state.filter === 0 || state.filter === '') {
+                result = await CardService.getCards();
+            } else {
+                result = await CardService.getCardByFilterId(state.filter);
+            }
             setCardResult(result);
         };
         return () => {
             fetchApi();
         };
-    }, []);
+    }, [state]);
     return (
         <div className="card-list">
             {cardResult.map((card, index) => {
