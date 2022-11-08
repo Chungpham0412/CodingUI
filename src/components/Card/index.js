@@ -2,27 +2,34 @@ import './Card.scss';
 import React, { useEffect, useState } from 'react';
 import * as CardService from 'src/services/CardService';
 import CardItem from './CardItem';
-import { useStore } from 'src/store';
+import { globalStore } from 'src/store/global-store';
+import shallow from 'zustand/shallow';
+
 function Card() {
     const [cardResult, setCardResult] = useState([]);
-    const [state, dispatch] = useStore();
+
+    const { filterId } = globalStore(
+        (state) => ({
+            filterId: state.filterId,
+        }),
+        shallow,
+    );
 
     useEffect(() => {
-        const fetchApi = async () => {
+        const fetchData = async () => {
             let result = [];
-            if (state.filter === 0 || state.filter === '') {
+            if (filterId === 0 || filterId === '') {
                 result = await CardService.getCards();
             } else {
-                result = await CardService.getCardByFilterId(state.filter);
+                result = await CardService.getCardByFilterId(filterId);
             }
             setCardResult(result);
         };
-
-        fetchApi();
-    }, [state]);
+        fetchData();
+    }, [filterId]);
     return (
         <div className="card-list">
-            {cardResult.map((card, index) => {
+            {cardResult.map((card) => {
                 return (
                     <CardItem
                         key={card.id}

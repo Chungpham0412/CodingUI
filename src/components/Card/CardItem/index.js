@@ -13,7 +13,7 @@ const CardStyles = styled.div`
     ${(props) => props.css}
 `;
 function CardItem(props) {
-    const { id, title, htmlCode, cssCode, filter, author = null, preview = false } = props;
+    const { title, htmlCode, cssCode, author = null, preview = false } = props;
     const [htmlSourceCode, setHtmlSourceCode] = useState(htmlCode);
     const [cssSourceCode, setCssSourceCode] = useState(cssCode);
 

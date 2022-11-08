@@ -1,26 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import * as FilterService from 'src/services/FilterService';
 import './Filter.scss';
-import { useStore, actions } from 'src/store';
+import { globalStore } from 'src/store/global-store';
+import shallow from 'zustand/shallow';
 
 function Filter() {
     const [isActive, setIsActive] = useState(0);
     const [filterResult, setFilterResult] = useState([]);
-    const [state, dispatch] = useStore();
+
+    const { setFilterId } = globalStore(
+        (state) => ({
+            setFilterId: state.setFilterId,
+        }),
+        shallow,
+    );
 
     useEffect(() => {
-        const fetchApi = async () => {
+        const fetchData = async () => {
             const result = await FilterService.getFilters();
             setFilterResult(result);
         };
         return () => {
-            fetchApi();
+            fetchData();
         };
     }, []);
 
     const handleClick = (id) => {
         setIsActive(id);
-        dispatch(actions.setFilter(id));
+        setFilterId(id);
     };
 
     return (
