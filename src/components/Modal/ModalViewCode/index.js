@@ -4,6 +4,7 @@ import { globalStore } from 'src/store/global-store';
 import shallow from 'zustand/shallow';
 import CodeEditorBlock from '@components/CodeEditorBlock';
 import ModalClose from '../ModalClose';
+import Label from '@components/Label';
 
 function ModalViewCode() {
     const { isShowCode, setIsShowCode, htmlCodeView, cssCodeView } = globalStore(
@@ -27,13 +28,13 @@ function ModalViewCode() {
 
             <div className="mt-10"></div>
             <div className="flex flex-col mb-5 gap-y-3">
-                <label>HTML</label>
+                <Label>HTML</Label>
                 <CodeEditorBlock code={htmlCodeView} name="htmlCodeView" language="html">
                     {htmlCodeView}
                 </CodeEditorBlock>
             </div>
             <div className="flex flex-col mb-5 gap-y-3">
-                <label>CSS</label>
+                <Label>CSS</Label>
                 <CodeEditorBlock code={cssCodeView} name="cssCodeView" language="css">
                     {cssCodeView}
                 </CodeEditorBlock>

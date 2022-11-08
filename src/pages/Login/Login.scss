@@ -6,6 +6,7 @@
     margin-right: auto;
 
 }
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -55,6 +56,7 @@
             color: rgb(156 163 175/var(--tw-text-opacity));
             -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
+            width: 2rem;
         }
     }
 }
