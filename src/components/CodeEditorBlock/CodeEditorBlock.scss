@@ -1,0 +1,32 @@
+body .w-tc-editor {
+    --btn-gradient: linear-gradient(90deg, #4facfe 0%, #00f2fe);
+    --color-prettylights-syntax-entity: #ff6bcb;
+    --color-prettylights-syntax-entity-tag: #ff6bcb;
+    --color-prettylights-syntax-constant: #20e3b2;
+    --color-prettylights-syntax-string: #20e3b2;
+    --color-prettylights-syntax-sublimelinter-gutter-mark: #64748b;
+    --color-prettylights-syntax-unit: #9a86fd;
+    --color-prettylights-syntax-number: #ff6bcb;
+    --color-prettylights-syntax-variable: #82aaff;
+    --color-prettylights-syntax-attr: #20e3b2;
+    --color-prettylights-syntax-attr-value: #eac394;
+    --color-prettylights-syntax-property: #2cccff;
+    width: 100%;
+    resize: none;
+    overflow-y: auto;
+    --bs-bg-opacity: 1;
+    background-color: rgb(15 23 42/var(--bs-bg-opacity));
+    padding: 1rem;
+    font-family: SF mono, sans-serif;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    line-height: 2;
+    --bs-text-opacity: 1;
+    color: rgb(255 255 255/var(--bs-text-opacity));
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-duration: .15s;
+}

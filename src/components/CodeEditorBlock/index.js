@@ -1,3 +1,4 @@
+import './CodeEditorBlock.scss';
 import CodeEditor from '@uiw/react-textarea-code-editor';
 function CodeEditorBlock(props) {
     const { language = 'css', placeholder = '', name, code, onChange } = props;

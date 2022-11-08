@@ -1,0 +1,19 @@
+.modal__close {
+    --bg-opacity: 1;
+    background-color: rgb(15 23 42/var(--bg-opacity));
+    border-radius: 9999px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    right: 1.25rem;
+    top: 1.25rem;
+    position: absolute;
+}
+
+.modal__close svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}

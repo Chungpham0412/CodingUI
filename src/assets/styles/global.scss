@@ -1,16 +1,51 @@
-@import "~bootstrap/scss/bootstrap";
-*, :after, :before {
+@import "bootstrap/scss/bootstrap.scss";
+
+*,
+:after,
+:before {
     box-sizing: border-box;
     border: 0 solid #e5e7eb;
 }
+
 body {
-    --tw-bg-opacity: 1;
-    --tw-text-opacity: 1;
-    background-color: rgb(15 23 42/var(--tw-bg-opacity));
-    color: rgb(255 255 255/var(--tw-text-opacity));
+    --bg-opacity: 1;
+    --text-opacity: 1;
+    background-color: rgb(15 23 42/var(--bg-opacity));
+    color: rgb(255 255 255/var(--text-opacity));
 }
 
 @font-face {
     font-family: "SF mono";
     src: url("./fonts/SFMonoLigaturized-Regular.ttf");
-  }
+}
+
+.scrollbar-style::-webkit-scrollbar,
+.w-tc-editor::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+.scrollbar-style::-webkit-scrollbar-thumb,
+.w-tc-editor::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    --bg-opacity: 1;
+    background-color: rgb(71 85 105/var(--bg-opacity));
+}
+
+.scrollbar-style::-webkit-scrollbar-thumb,
+.scrollbar-style::-webkit-scrollbar-track,
+.w-tc-editor::-webkit-scrollbar-thumb,
+.w-tc-editor::-webkit-scrollbar-track,
+body::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-track {
+    border-radius: 100rem;
+}
+
+.scrollbar-style::-webkit-scrollbar-thumb,
+.scrollbar-style::-webkit-scrollbar-track,
+.w-tc-editor::-webkit-scrollbar-thumb,
+.w-tc-editor::-webkit-scrollbar-track,
+body::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-track {
+    border-radius: 100rem;
+}

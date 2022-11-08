@@ -1,6 +1,7 @@
+import './ModalClose.scss';
 const ModalClose = ({ onClick = () => {} }) => {
     return (
-        <div aria-label="modal-close" className="modal-close" onClick={onClick}>
+        <div aria-label="modal-close" className="modal__close" onClick={onClick}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-6 h-6"

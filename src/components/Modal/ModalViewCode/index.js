@@ -1,9 +1,9 @@
 import ReactModal from 'react-modal';
-import ModalClose from './ModalClose';
 import './ModalViewCode.scss';
 import { globalStore } from 'src/store/global-store';
 import shallow from 'zustand/shallow';
 import CodeEditorBlock from '@components/CodeEditorBlock';
+import ModalClose from '../ModalClose';
 
 function ModalViewCode() {
     const { isShowCode, setIsShowCode, htmlCodeView, cssCodeView } = globalStore(
@@ -15,7 +15,7 @@ function ModalViewCode() {
         }),
         shallow,
     );
-    console.log('isShowCode', isShowCode);
+
     return (
         <ReactModal
             isOpen={isShowCode}
