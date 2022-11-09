@@ -25,7 +25,7 @@ function Header() {
                                 <Link className="header__info" to="/manage/cards">
                                     <Avatar />
                                     <p className="header__info--name">
-                                        <span>Hello,</span>
+                                        <span>Hello, </span>
                                         <strong>{userInfo?.name || userInfo?.name || 'user'}</strong>
                                     </p>
                                 </Link>

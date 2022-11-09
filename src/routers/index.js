@@ -9,11 +9,14 @@ import AccountLayout from 'src/layout/AccountLayout';
 // Public routes
 const publicRoutes = [
     { path: config.routes.home, component: Home },
-    { path: config.routes.login, component: Login, layout: AccountLayout },
-    { path: config.routes.register, component: Register, layout: AccountLayout },
     { path: '*', component: '', layout: PageNotFound },
 ];
-
+// Redirect router when login
+const redirectRoutes = [
+    { path: config.routes.login, component: Login, layout: AccountLayout },
+    { path: config.routes.register, component: Register, layout: AccountLayout },
+];
+// Private routes
 const privateRoutes = [{ path: config.routes.cards, component: Register, layout: CardManagePage }];
 
-export { publicRoutes, privateRoutes };
+export { publicRoutes, redirectRoutes, privateRoutes };
