@@ -2,6 +2,7 @@ import config from '@config';
 import PageNotFound from '@pages/404';
 import Home from '@pages/Home';
 import Login from '@pages/Login';
+import CardManagePage from '@pages/Manage/Cards';
 import Register from '@pages/Register';
 import AccountLayout from 'src/layout/AccountLayout';
 
@@ -13,6 +14,6 @@ const publicRoutes = [
     { path: '*', component: '', layout: PageNotFound },
 ];
 
-const privateRoutes = [];
+const privateRoutes = [{ path: config.routes.cards, component: Register, layout: CardManagePage }];
 
 export { publicRoutes, privateRoutes };

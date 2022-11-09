@@ -8,7 +8,7 @@ function Input(props) {
     }
     return (
         <div className="wrap-input">
-            <input autoComplete="off" type={inputType} {...rest} className={className} />
+            <input type={inputType} {...rest} className={className} />
             {type === 'password' && (
                 <>
                     {inputType === 'password' ? (
