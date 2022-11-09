@@ -1,6 +1,8 @@
+import './Sidebar.scss';
 import { IconCards, IconUsers, IconFilters } from '@components/Share/Icons';
-import { Link } from 'react-router-dom';
-// import { toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
+import logo from '@assets/images/logo/logo.png';
+import * as UserService from 'src/services/UserService';
 
 function Sidebar() {
     const menus = [
@@ -23,7 +25,7 @@ function Sidebar() {
     return (
         <div className="sidebar">
             <Logo />
-            <ul className="flex flex-col gap-y-2">
+            <ul className="sidebar__ul">
                 {menus.map((item, index) => (
                     <MenuItem key={index} menu={item}></MenuItem>
                 ))}
@@ -33,10 +35,14 @@ function Sidebar() {
     );
 }
 function ButtonLogout() {
-    const handleSignOut = () => {
-        // signOut(auth).then(() => {
-        //     toast.success('Sign out successfully');
-        // });
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        const result = await UserService.logout();
+        if (result.status === true) {
+            localStorage.removeItem('token');
+            navigate('/');
+        }
     };
     const IconLogout = (
         <svg
@@ -55,31 +61,28 @@ function ButtonLogout() {
         </svg>
     );
     return (
-        <div className="absolute bottom-0 flex items-center w-full pb-5 gap-x-2">
-            <button
-                className="flex items-center px-4 py-3 bg-gray-800 rounded-lg gap-x-3 font-secondary"
-                onClick={handleSignOut}
-            >
-                <span className="w-5">{IconLogout}</span>
-                <span>Logout</span>
+        <div className="sidebar__btn">
+            <button className="btn btn-logout" onClick={handleLogout}>
+                <span className="icon">{IconLogout}</span>
+                <span className="title">Logout</span>
             </button>
         </div>
     );
 }
 function MenuItem({ menu }) {
     return (
-        <li>
-            <Link href={menu.link}>
-                <span className="w-5">{menu.icon}</span>
-                <span>{menu.title}</span>
+        <li className="sidebar__ul__li">
+            <Link to={menu.link}>
+                <span className="icon">{menu.icon}</span>
+                <span className="title">{menu.title}</span>
             </Link>
         </li>
     );
 }
-function Logo({}) {
+function Logo() {
     return (
-        <Link href="/" className="logo-wraper">
-            <img src="/logo.png" alt="codingui" className="logo" />
+        <Link to="/" className="logo-wraper">
+            <img src={logo} alt="codingui" className="logo" />
             <span>CodingUI</span>
         </Link>
     );

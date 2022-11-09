@@ -6,13 +6,17 @@ import Button from '@components/Button';
 import { toast } from 'react-toastify';
 import * as UserService from 'src/services/UserService';
 import { useAuth } from 'src/contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const { userInfo } = useAuth();
+    const navigate = useNavigate();
     useEffect(() => {
         if (userInfo?.email) {
+            console.log(userInfo);
+            return navigate('/manage/cards');
         }
     }, [userInfo]);
 
@@ -25,6 +29,10 @@ function LoginPage() {
         const fetchLogin = async () => {
             let datas = { email: email, password: password };
             const result = await UserService.login(datas);
+            if (result.status === false) {
+                toast.error(result.message);
+                return;
+            }
             localStorage.setItem('token', result.token);
         };
         fetchLogin();

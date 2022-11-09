@@ -6,11 +6,9 @@ export const globalStore = create((set) => ({
     isShowCode: false,
     htmlCodeView: '',
     cssCodeView: '',
-    userInfo: {},
     // actions
     setFilterId: (filterId) => set({ filterId }),
     setIsShowCode: () => set((state) => ({ isShowCode: !state.isShowCode })),
     setHtmlCodeView: (htmlCodeView) => set({ htmlCodeView }),
     setCssCodeView: (cssCodeView) => set({ cssCodeView }),
-    setUserInfo: (userInfo) => set({ userInfo }),
 }));

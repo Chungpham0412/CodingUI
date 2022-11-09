@@ -1,3 +1,40 @@
-.ReactModal__Content{
+.ReactModal__Content {
     padding: 1.25rem;
+}
+
+//chưa có tgian sửa
+
+.modal-content {
+    --tw-bg-opacity: 0.4;
+    background-color: rgb(0 0 0/var(--tw-bg-opacity));
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.ModalViewCode {
+    max-width: 42rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(30 41 59/var(--tw-bg-opacity));
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    overflow-y: auto;
+    width: 100%;
+    max-height: 80vh;
+    position: relative;
+}
+
+.ReactModal__Body--open {
+    overflow: hidden;
+}
+
+.mt-10 {
+    margin-top: 2.5rem;
 }

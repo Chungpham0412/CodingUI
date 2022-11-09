@@ -8,7 +8,6 @@ import { useAuth } from 'src/contexts/AuthContext';
 
 function Header() {
     const { userInfo } = useAuth();
-
     return (
         <header className="header">
             <div className="container">

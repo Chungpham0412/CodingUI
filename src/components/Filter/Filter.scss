@@ -1,18 +1,19 @@
 .filter {
-    --tw-border-opacity: 1;
+    --border-opacity: 1;
     -webkit-column-gap: 1.25rem;
     column-gap: 1.25rem;
     white-space: nowrap;
     overflow-x: auto;
     border-bottom-width: 1px;
-    border-bottom-color: rgb(30 41 59/var(--tw-border-opacity));
+    border-bottom-color: rgb(30 41 59/var(--border-opacity));
     font-size: 1.125rem;
     line-height: 1.75rem;
     font-weight: 500;
     -ms-overflow-style: none;
     scrollbar-width: none;
     margin-bottom: 2.5rem;
-    &--item{
+
+    &--item {
         font-size: 1rem;
         line-height: 1.5rem;
         text-transform: capitalize;
@@ -21,15 +22,16 @@
         -webkit-column-gap: 0.5rem;
         column-gap: 0.5rem;
         cursor: pointer;
-        --tw-text-opacity: 1;
-        color: rgb(203 213 225/var(--tw-text-opacity));
-        &.active{
+        --text-opacity: 1;
+        color: rgb(203 213 225/var(--text-opacity));
+
+        &.active {
             color: transparent;
             -webkit-background-clip: text;
             background-clip: text;
-            background-image: linear-gradient(to right top,#6a5af9,#d66efd);
-            --tw-border-opacity: 1;
-            border-bottom: 2px solid rgb(106 90 249/var(--tw-border-opacity));
+            background-image: linear-gradient(to right top, #6a5af9, #d66efd);
+            --border-opacity: 1;
+            border-bottom: 2px solid rgb(106 90 249/var(--border-opacity));
         }
     }
 }

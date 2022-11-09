@@ -27,23 +27,23 @@
         width: 100%;
 
         input {
-            --tw-text-opacity: 1;
-            --tw-bg-opacity: 1;
-            --tw-border-opacity: 1;
+            --text-opacity: 1;
+            --bg-opacity: 1;
+            --border-opacity: 1;
             font-size: 1rem;
             line-height: 1.5rem;
-            color: rgb(255 255 255/var(--tw-text-opacity));
+            color: rgb(255 255 255/var(--text-opacity));
             padding: 1rem;
             outline: 2px solid transparent;
             outline-offset: 2px;
-            background-color: rgb(15 23 42/var(--tw-bg-opacity));
-            border: 1px solid rgb(51 65 85/var(--tw-border-opacity));
+            background-color: rgb(15 23 42/var(--bg-opacity));
+            border: 1px solid rgb(51 65 85/var(--border-opacity));
             border-radius: 0.5rem;
             width: 100%;
 
             &:focus {
-                --tw-border-opacity: 1;
-                border-color: rgb(59 130 246/var(--tw-border-opacity));
+                --border-opacity: 1;
+                border-color: rgb(59 130 246/var(--border-opacity));
             }
         }
 
@@ -52,8 +52,8 @@
             top: 50%;
             right: 1rem;
             cursor: pointer;
-            --tw-text-opacity: 1;
-            color: rgb(156 163 175/var(--tw-text-opacity));
+            --text-opacity: 1;
+            color: rgb(156 163 175/var(--text-opacity));
             -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
             width: 2rem;

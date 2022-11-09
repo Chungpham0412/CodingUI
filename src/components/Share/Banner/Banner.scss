@@ -3,8 +3,8 @@
     padding-bottom: 5rem;
 
     &__icon {
-        --tw-border-opacity: 1;
-        border: 4px solid rgb(106 90 249/var(--tw-border-opacity));
+        --border-opacity: 1;
+        border: 4px solid rgb(106 90 249/var(--border-opacity));
         width: 5rem;
         height: 5rem;
         display: flex;
@@ -50,8 +50,8 @@
             }
 
             &.btn-github {
-                --tw-bg-opacity: 1;
-                background-color: rgb(30 41 59/var(--tw-bg-opacity));
+                --bg-opacity: 1;
+                background-color: rgb(30 41 59/var(--bg-opacity));
             }
         }
     }
@@ -61,10 +61,10 @@
         column-gap: 1.25rem;
 
         a {
-            --tw-bg-opacity: 1;
-            --tw-text-opacity: 1;
-            background-color: rgb(51 65 85/var(--tw-bg-opacity));
-            color: rgb(255 255 255/var(--tw-text-opacity));
+            --bg-opacity: 1;
+            --text-opacity: 1;
+            background-color: rgb(51 65 85/var(--bg-opacity));
+            color: rgb(255 255 255/var(--text-opacity));
             padding: 0.5rem;
             border-radius: 99px;
 
