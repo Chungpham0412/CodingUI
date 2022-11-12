@@ -49,3 +49,8 @@ body::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-track {
     border-radius: 100rem;
 }
+
+body input:-internal-autofill-selected {
+    --bg-opacity: 1;
+    background-color: rgb(15 23 42/var(--bg-opacity)) !important;
+}

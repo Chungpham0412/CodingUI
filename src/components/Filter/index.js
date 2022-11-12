@@ -20,9 +20,7 @@ function Filter() {
             const result = await FilterService.getFilters();
             setFilterResult(result);
         };
-        return () => {
-            fetchData();
-        };
+        fetchData();
     }, []);
 
     const handleClick = (id) => {

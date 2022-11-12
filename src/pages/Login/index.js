@@ -11,14 +11,21 @@ import { useNavigate } from 'react-router-dom';
 function LoginPage() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    const { userInfo } = useAuth();
+    const [token, setToken] = useState();
+    const { userInfo, setUserInfo } = useAuth();
     const navigate = useNavigate();
     useEffect(() => {
-        if (userInfo?.email) {
-            console.log(userInfo);
-            return navigate('/manage/cards');
+        if (token) {
+            const fetchData = async () => {
+                const _userInfo = await UserService.getUser();
+                setUserInfo(_userInfo);
+                console.log(_userInfo);
+            };
+            fetchData();
+            // navigate('/manage/cards');
         }
-    }, [userInfo]);
+        console.log(userInfo);
+    }, [token]);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -34,6 +41,8 @@ function LoginPage() {
                 return;
             }
             localStorage.setItem('token', result.token);
+            setToken(result.token);
+            console.log('fetchLogin', token);
         };
         fetchLogin();
     };

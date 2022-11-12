@@ -3,6 +3,7 @@ import { IconCards, IconUsers, IconFilters } from '@components/Share/Icons';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '@assets/images/logo/logo.png';
 import * as UserService from 'src/services/UserService';
+import { useAuth } from 'src/contexts/AuthContext';
 
 function Sidebar() {
     const menus = [
@@ -36,11 +37,12 @@ function Sidebar() {
 }
 function ButtonLogout() {
     const navigate = useNavigate();
-
+    const { setUserInfo } = useAuth();
     const handleLogout = async () => {
         const result = await UserService.logout();
         if (result.status === true) {
             localStorage.removeItem('token');
+            setUserInfo({});
             navigate('/');
         }
     };

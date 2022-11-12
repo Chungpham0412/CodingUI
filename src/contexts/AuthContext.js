@@ -11,14 +11,11 @@ function AuthProvider(props) {
                 const result = await UserService.getUser();
                 setUserInfo(result);
             };
-            return () => {
-                fetchData();
-            };
+            fetchData();
         } else {
             setUserInfo({});
         }
     }, []);
-
     return <AuthContext.Provider value={value} {...props}></AuthContext.Provider>;
 }
 function useAuth() {

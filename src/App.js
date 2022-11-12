@@ -6,9 +6,10 @@ import LayoutDashboard from './layout/LayoutDashboard';
 import { ToastContainer } from 'react-toastify';
 import ModalViewCode from '@components/Modal/ModalViewCode';
 import Modal from 'react-modal';
+import { useAuth } from './contexts/AuthContext';
 Modal.setAppElement('#root');
 function App() {
-    const token = localStorage.getItem('token');
+    const { userInfo } = useAuth();
 
     return (
         <>
@@ -50,7 +51,7 @@ function App() {
                                     key={index}
                                     path={route.path}
                                     element={
-                                        token ? (
+                                        userInfo?.name ? (
                                             <Navigate to="/manage/cards" />
                                         ) : (
                                             <Layout>
@@ -61,28 +62,27 @@ function App() {
                                 />
                             );
                         })}
-                        {token &&
-                            privateRoutes.map((route, index) => {
-                                const Page = route.component;
-                                let Layout = LayoutDashboard;
-                                if (route.layout) {
-                                    Layout = route.layout;
-                                } else if (route.layout === null) {
-                                    Layout = Fragment;
-                                }
+                        {privateRoutes.map((route, index) => {
+                            const Page = route.component;
+                            let Layout = LayoutDashboard;
+                            if (route.layout) {
+                                Layout = route.layout;
+                            } else if (route.layout === null) {
+                                Layout = Fragment;
+                            }
 
-                                return (
-                                    <Route
-                                        key={index}
-                                        path={route.path}
-                                        element={
-                                            <Layout>
-                                                <Page />
-                                            </Layout>
-                                        }
-                                    />
-                                );
-                            })}
+                            return (
+                                <Route
+                                    key={index}
+                                    path={route.path}
+                                    element={
+                                        <Layout>
+                                            <Page />
+                                        </Layout>
+                                    }
+                                />
+                            );
+                        })}
                     </Routes>
                 </div>
             </Router>

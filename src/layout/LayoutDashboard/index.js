@@ -1,7 +1,11 @@
 import './LayoutDashboard.scss';
 import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import { useAuth } from 'src/contexts/AuthContext';
+import PageNotFound from '@pages/404';
 function LayoutDashboard({ children, heading = '', hasPermission = false, back = '' }) {
+    const { userInfo } = useAuth();
+    if (!userInfo?.name || !hasPermission) return <PageNotFound></PageNotFound>;
     return (
         <>
             <div className="layout__dashboard">
