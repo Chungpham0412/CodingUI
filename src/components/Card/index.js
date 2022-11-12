@@ -29,7 +29,6 @@ function Card() {
     }, [filterId]);
     return (
         <div className="card-list">
-            {' '}
             {cardResult &&
                 cardResult.map((card) => {
                     return (
@@ -43,7 +42,7 @@ function Card() {
                             author={card.author}
                         ></CardItem>
                     );
-                })}{' '}
+                })}
         </div>
     );
 }
