@@ -29,19 +29,21 @@ function Card() {
     }, [filterId]);
     return (
         <div className="card-list">
-            {cardResult.map((card) => {
-                return (
-                    <CardItem
-                        key={card.id}
-                        id={card.id}
-                        title={card.title}
-                        filter={card.filter}
-                        htmlCode={card.htmlCode}
-                        cssCode={card.cssCode}
-                        author={card.author}
-                    ></CardItem>
-                );
-            })}
+            {' '}
+            {cardResult &&
+                cardResult.map((card) => {
+                    return (
+                        <CardItem
+                            key={card.id}
+                            id={card.id}
+                            title={card.title}
+                            filter={card.filter}
+                            htmlCode={card.htmlCode}
+                            cssCode={card.cssCode}
+                            author={card.author}
+                        ></CardItem>
+                    );
+                })}{' '}
         </div>
     );
 }
