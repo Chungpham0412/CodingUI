@@ -33,17 +33,18 @@ function Filter() {
             <div className={isActive === 0 ? 'filter--item active' : 'filter--item'} onClick={() => handleClick(0)}>
                 All
             </div>
-            {filterResult.map((item, index) => {
-                return (
-                    <div
-                        className={isActive === index + 1 ? 'filter--item active' : 'filter--item'}
-                        onClick={() => handleClick(item.id)}
-                        key={item.name}
-                    >
-                        {item.name}
-                    </div>
-                );
-            })}
+            {filterResult &&
+                filterResult.map((item, index) => {
+                    return (
+                        <div
+                            className={isActive === index + 1 ? 'filter--item active' : 'filter--item'}
+                            onClick={() => handleClick(item.id)}
+                            key={item.name}
+                        >
+                            {item.name}
+                        </div>
+                    );
+                })}
         </div>
     );
 }
